@@ -6,12 +6,12 @@ doble numero = numero + numero
 
 --Saber si un numero es copado, es decir es par o mayor a 20
 numeroCopado :: Number -> Bool
-esNumeroCopado numero = numero > 20 || even numero
+numeroCopado numero = numero > 20 || even numero
 
 --even devuelve si es par o impar el numero
 
 esNumeroSuperCopado :: Number -> Bool
-esNumeroSuperCopado numero = numero > 100 && esNumeroCopado numero
+esNumeroSuperCopado numero = numero > 100 && numeroCopado numero
 
 --Saber costo de entrada, si es mayor a 18 sale edad*3, sino sale 5
 --Se hace mediante funciones por partes (Guardas)
@@ -28,14 +28,14 @@ costoEntrada edad
 --Si la hora esta entre las 13 y las 17 hay un descuento del 60%
 descuentoSegunHora :: Number -> Number
 descuentoSegunHora hora 
-    | hora <= 10 = 0,1
+    | hora <= 10 = 0.1
     | hora > 13 && hora < 17 = 0.6
     | hora > 18 = 0
-    | otherwise = 0,05
+    | otherwise = 0.05
 --El otherwise va siempre a lo ultimo
 
 tieneMuchaPlata :: Number -> Bool
-tieneMuchaPlata plata = plata > 100 = True
+tieneMuchaPlata plata = plata > 100
 
 --No hacer lo siguiente
 tieneMuchaPlata2 :: Number -> Bool
@@ -49,7 +49,7 @@ nivelDeRareza "Tom" = 900 --CASO PARTICULAR llamado Pattern Matching
 nivelDeRareza nombre = length nombre * 2
 
 --Seria lo mismo que hacer:
-nivelDeRareza :: String -> Number
-nivelDeRareza nombre 
- | nombre == "Tom" = 900
- | otherwise = length nombre * 2
+--nivelDeRareza :: String -> Number
+--nivelDeRareza nombre 
+ -- | nombre == "Tom" = 900
+ -- | otherwise = length nombre * 2
